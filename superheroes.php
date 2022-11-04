@@ -65,8 +65,9 @@ $superheroes = [
 
 
     $user_Input = $_GET['name'];
-    $user_Input = htmlspecialchars($user_Input); //a precaution to make sure the input is in html format
+    $user_Input = htmlspecialchars($user_Input, ENT_COMPAT); //sanitizing the input
 
+    
     if(empty($user_Input)){
         echo "<h2>RESULT</h2>";
         echo "<ul>";
@@ -77,12 +78,21 @@ $superheroes = [
     }
 
     else{
+        $found = false;
         foreach($superheroes as $superhero){
-            if($superhero["name"] == $user_Input || $superhero["alias"] == $user_Input){
-                echo "<h2>RESULT</h2>";
+            if($superhero["name"] == $user_Input || $superhero["alias"] == $user_Input && !$found){
+                
+                echo "<h1>RESULT</h1>";
                 echo "<hr>";
+                echo "<h3>{$superhero["alias"]}</h3>";
+                echo "<h4>a.k.a {$superhero["name"]}</h4>";
                 echo "<p>{$superhero["biography"]}</p>";
+                $found = true;
+                break;
             }
+            }
+            if(!$found){
+                echo "Superhero not found";
         }
     }
 

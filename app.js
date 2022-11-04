@@ -1,9 +1,6 @@
 window.addEventListener("load", function () {
   let btn = document.querySelector(".btn");
   let user_Input = document.querySelector("#name_alias");
-  console.log(user_Input);
-
-  // let url = "superheroes.php";
 
   let result = document.getElementById("result");
 
@@ -12,12 +9,14 @@ window.addEventListener("load", function () {
 
     let input_value = user_Input.value;
     let url = `superheroes.php?name=${input_value}`;
-    console.log(url);
 
     fetch(url)
       .then(function (response) {
-        console.log(response);
-        return response.text();
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error(response.statusText);
+        }
       })
       .then(function (data) {
         result.innerHTML = data;
