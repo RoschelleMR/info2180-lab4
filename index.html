@@ -10,6 +10,16 @@
   </head>
   <body>
     <h1>Avengers Character Search</h1>
-    <button class="btn">Search</button>
+    <form id="form" method="get">
+      <!--php form validation-->
+      <label for="name">Search by Full Name or Alias</label>
+      <input type="text" name="input_Name" id="name_alias" />
+      <button type="submit" class="btn">Search</button>
+    </form>
+    <div>
+      <div id="result"></div>
+    </div>
+
+    <footer>Copyright &copy 2022, Roschelle Matthews-Rhoden</footer>
   </body>
 </html>

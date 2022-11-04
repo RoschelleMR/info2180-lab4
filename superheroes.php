@@ -63,10 +63,27 @@ $superheroes = [
   ], 
 ];
 
-?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+    $user_Input = $_GET['name'];
+    $user_Input = htmlspecialchars($user_Input); //a precaution to make sure the input is in html format
+
+    if(empty($user_Input)){
+        echo "<h2>RESULT</h2>";
+        echo "<ul>";
+        foreach ($superheroes as $superhero){
+            echo "<li>{$superhero['alias']}</li>";
+        }
+        echo "</ul>";
+    }
+
+    else{
+        foreach($superheroes as $superhero){
+            if($superhero["name"] == $user_Input || $superhero["alias"] == $user_Input){
+                echo "<h2>RESULT</h2>";
+                echo "<hr>";
+                echo "<p>{$superhero["biography"]}</p>";
+            }
+        }
+    }
+
+?>
