@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
     let input_value = user_Input.value;
     let url = `superheroes.php?name=${input_value}`;
 
-    fetch(url)
+    fetch(url) //using the fetch api to get the php url
       .then(function (response) {
         if (response.ok) {
           return response.text();
@@ -22,26 +22,4 @@ window.addEventListener("load", function () {
         result.innerHTML = data;
       });
   });
-
-  // const xhttp = new XMLHttpRequest(); //Ajax Request for superheroes.php
-
-  // btn.addEventListener("submit", function (event) {
-  //   event.preventDefault();
-
-  //   xhttp.onreadystatechange = loadList;
-  //   xhttp.open("GET", url, true);
-  //   xhttp.send();
-  // });
-
-  // function loadList() {
-  //   if (xhttp.readyState === XMLHttpRequest.DONE) {
-  //     if (xhttp.status === 200) {
-  //       let response = xhttp.responseText;
-  //       alert(response);
-  //       result.innerHTML() = response;
-  //     } else {
-  //       alert("There's a problem with the request");
-  //     }
-  //   }
-  // }
 });

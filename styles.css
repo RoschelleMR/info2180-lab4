@@ -70,15 +70,21 @@ button:hover {
   padding-bottom: 20px;
 }
 
+/* Custom Classes to manipulate how the result div looks */
+
 .hero_list ul {
+  /*When the user doesn't type anything in the input field*/
   padding: 30px;
 }
 
 .no_hero p {
+  /*When the user doesn't specify a superhero in the php list in the input field*/
   color: red;
   text-transform: uppercase;
   font-weight: 800;
 }
+
+/*When the user searches for a superhero that's in the php list in the input field*/
 
 .found_hero h3,
 h4 {
@@ -89,6 +95,8 @@ h4 {
 .found_hero h4 {
   margin-bottom: 20px;
 }
+
+/* Footer */
 
 footer {
   margin-top: 50px;
